@@ -1,35 +1,34 @@
-# Agriculture & Climate Resilience — Research Journal
+# Agriculture & Climate Resilience
 
-A static GitHub Pages website for documenting a data mining research project.
+## Project Overview
+This project investigates how unusually high temperatures and low rainfall relate to crop yield variability and identifies which selected crops demonstrate greater yield stability under these conditions.
 
-## Preview locally
+## Research Objectives
+- Analyze relationships between temperature anomalies, rainfall anomalies, and crop yields.
+- Compare crop yield variability across selected crops.
+- Evaluate regression models for predicting crop yield anomalies.
+- Identify crops that demonstrate greater resilience under adverse climate conditions.
 
-Open `index.html` in your browser (or use VS Code Live Server).
+## Datasets
+The project plans to use:
+- **FAOSTAT:** Crop yield data.
+- **ERA5 or CRU TS:** Temperature and rainfall data.
 
-## Publish to GitHub Pages
+Dataset sources and processing details will be documented as the research progresses.
 
-1. Create a **public** GitHub repository.
-2. Upload all four website files (`index.html`, `style.css`, `script.js`, `updates.js`) to the repository root.
-3. In `script.js`, replace `YOUR_USERNAME/YOUR_REPOSITORY` with your GitHub username and repository name.
-4. Go to **Settings → Pages → Build and deployment → Deploy from a branch**.
-5. Select **main** and **/(root)**, then save.
-6. Your site will appear at `https://YOUR_USERNAME.github.io/YOUR_REPOSITORY/` after deployment.
+## Machine Learning Methods
+The planned models include:
+- Linear Regression (baseline)
+- Decision Tree Regressor
+- Random Forest Regressor
 
-## Post a progress update
+Evaluation metrics will include MAE and RMSE.
 
-Edit `updates.js` and add a new object at the **top** of the `projectUpdates` array, for example:
+## Project Progress
+Research activities, dataset preparation, model development, and findings will be documented on the project website.
 
-```js
-{ date: "2026-11-08", title: "Collected datasets", description: "Reviewed FAOSTAT and ERA5 coverage.", tag: "Data" },
-```
+## Project Website
+[Visit the Project Website](https://pi9000x.github.io/DataMining_website/)
 
-Commit the change. GitHub Pages will automatically publish the updated site.
-
-## Customize
-
-- `index.html`: project description, sections, and data source links
-- `style.css`: colors, layout, typography
-- `script.js`: repository link and update rendering
-- `updates.js`: progress log entries
-
-**Note:** This is a static website; it does not run Python models, PHP, or a database. Do not commit private data or credentials.
+## Project Status
+In progress.
