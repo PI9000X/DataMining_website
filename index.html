@@ -1,9 +1,79 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Research documentation and progress updates for Agriculture & Climate Resilience"><title>Agriculture & Climate Resilience | Research Journal</title><link rel="stylesheet" href="style.css"></head>
-<body><header class="topbar"><a class="brand" href="#home"><span class="mark">✳</span> FIELDNOTES <span class="brand-light">/ RESEARCH</span></a><button id="menuBtn" class="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button><nav id="nav"><a href="#home">Home</a><a href="#about">About</a><a href="#progress">Progress</a><a href="#data">Datasets</a><a href="#results">Results</a><a id="repoLink" href="https://github.com" target="_blank" rel="noopener">GitHub ↗</a></nav></header>
-<main><section id="home" class="hero"><div class="hero-inner"><div class="eyebrow"><span class="dot"></span> DATA MINING RESEARCH PROJECT <span class="separator">/</span> PROJECT JOURNAL</div><h1>Understanding crops<br>in a <em>changing climate.</em></h1><p class="lede">Exploring how unusually high temperatures and low rainfall relate to crop yield variability — and which crops show the greatest stability.</p><div class="hero-actions"><a class="btn primary" href="#progress">Explore progress <span>↗</span></a><a class="btn secondary" href="#about">About the research <span>→</span></a></div><div class="hero-meta"><div><span class="meta-label">RESEARCH AREA</span><strong>Agriculture × Climate</strong></div><div><span class="meta-label">APPROACH</span><strong>Regression & Analysis</strong></div><div><span class="meta-label">STATUS</span><strong><span class="status-dot"></span> In progress</strong></div></div></div><div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="land land1"></div><div class="land land2"></div><div class="land land3"></div><span class="art-label">FIG 01 — CLIMATE & LANDSCAPE</span></div></section>
-<section id="about" class="section"><div class="section-heading"><span class="kicker">01 / THE RESEARCH</span><h2>About the project<span class="period">.</span></h2></div><div class="two-col"><p class="big-copy">How do extreme climate conditions influence agricultural productivity, and which crops remain more resilient?</p><div class="body-copy"><p>This project investigates relationships between temperature anomalies, rainfall anomalies, and crop yield variability using historical agricultural and climate data.</p><p>We plan to integrate and clean datasets, compare regression models, and examine which selected crops exhibit smaller negative yield anomalies or lower variability during hot and dry conditions.</p><div class="tags"><span>Data Integration</span><span>Climate Anomalies</span><span>Regression</span><span>Crop Stability</span></div></div></div></section>
-<section id="progress" class="section tinted"><div class="section-heading"><span class="kicker">02 / RESEARCH LOG</span><h2>Progress updates<span class="period">.</span></h2><p>Notes from each stage of the research. Newest updates appear first.</p></div><div id="updates" class="updates"></div></section>
-<section id="data" class="section"><div class="section-heading"><span class="kicker">03 / DATA SOURCES</span><h2>Working with data<span class="period">.</span></h2><p>Planned sources for the integrated research dataset.</p></div><div class="cards"><article class="data-card"><span class="card-num">01 / AGRICULTURE</span><h3>FAOSTAT crop yield</h3><p>Country, crop, year, and yield records for comparing agricultural performance over time.</p><a href="https://www.fao.org/faostat/en/#data" target="_blank" rel="noopener">Explore FAOSTAT ↗</a></article><article class="data-card"><span class="card-num">02 / CLIMATE</span><h3>ERA5 or CRU TS</h3><p>Temperature and rainfall observations used to calculate anomalies and analyze climate stress.</p><a href="https://cds.climate.copernicus.eu/" target="_blank" rel="noopener">Explore climate data ↗</a></article></div><p class="note">Sources are planned; dataset selection, coverage, and harmonization will be documented as work progresses.</p></section>
-<section id="results" class="section results-section"><div class="section-heading"><span class="kicker">04 / FINDINGS</span><h2>Results & insights<span class="period">.</span></h2></div><div class="result-placeholder"><div class="placeholder-icon">↗</div><div><h3>Analysis in progress</h3><p>Model evaluation, visualizations, and crop stability comparisons will be published here once validated.</p></div></div><div class="model-list"><span>LINEAR REGRESSION</span><span>DECISION TREE</span><span>RANDOM FOREST</span><span>MAE / RMSE</span></div></section>
-<section class="footer-cta"><span class="kicker">STAY IN THE LOOP</span><h2>Research is a process.<br><em>Follow the journey.</em></h2><a id="footerRepo" class="btn primary" href="https://github.com" target="_blank" rel="noopener">View repository ↗</a></section></main><footer><span>© <span id="year"></span> Agriculture & Climate Resilience</span><span>Built as an open research journal · Hosted on GitHub Pages</span></footer><script src="updates.js"></script><script src="script.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Agriculture & Climate Resilience: an ICT324 research journal presenting verified data preparation and planned crop-yield analysis.">
+  <title>Agriculture & Climate Resilience | Research Journal</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="site-data.js" defer></script>
+  <script src="updates.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="#home"><span class="mark" aria-hidden="true">✳</span> FIELDNOTES <span class="brand-light">/ RESEARCH</span></a>
+  <button id="menuBtn" class="menu" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav">☰</button>
+  <nav id="nav" aria-label="Main navigation"><a href="#home">Home</a><a href="#about">Problem</a><a href="#data">Datasets</a><a href="#preparation">Preparation</a><a href="#progress">Progress</a><a href="#methodology">Method</a><a href="#results">Results</a><a href="#resources">Resources</a></nav>
+</header>
+<main id="main">
+  <section id="home" class="hero" aria-labelledby="project-title">
+    <div class="hero-inner">
+      <div class="eyebrow">ICT324 <span class="separator">/</span> RESEARCH JOURNAL</div>
+      <p class="project-label">Agriculture &amp; Climate Resilience</p>
+      <h1 id="project-title">Understanding crops<br>in a <em>changing climate.</em></h1>
+      <p class="lede">How do unusually high temperatures and low rainfall relate to crop yield variability, and which selected crops exhibit the greatest yield stability?</p>
+      <div class="hero-actions"><a class="btn primary" href="#data">Explore the dataset <span aria-hidden="true">↗</span></a><a class="btn secondary" href="#progress">Follow our progress <span aria-hidden="true">→</span></a></div>
+      <div class="hero-meta"><div><span class="meta-label">RESEARCH TRACK</span><strong>Regression / Prediction</strong></div><div><span class="meta-label">CURRENT STATUS</span><strong id="project-status">Data preparation complete; analysis pending</strong></div></div>
+      <p class="course-line">ICT324 — Introduction to Data Warehousing and Data Mining</p>
+      <p class="updated-line">Last updated <time class="last-updated"></time></p>
+    </div>
+    <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="land land1"></div><div class="land land2"></div><div class="land land3"></div><span class="art-label">FIG 01 — CLIMATE &amp; LANDSCAPE</span></div>
+  </section>
+  <section id="about" class="section" aria-labelledby="problem-title">
+    <div class="section-heading"><span class="kicker">01 / THE RESEARCH</span><h2 id="problem-title">Research problem<span class="period">.</span></h2><p>A multi-country study, with Thailand as a secondary case study.</p></div>
+    <div class="two-col"><p class="big-copy">Understanding yield stability can help us ask better questions about food production in a variable climate.</p><div class="body-copy"><p>Temperature and water availability are relevant to crop development. This project asks how unusually warm and dry years are associated with yield variation, without assuming that every such year produces a decline.</p><p>Wheat, rice, and maize provide three crop series to compare. Studying multiple countries lets us examine whether patterns differ across locations, while accounting for unequal data coverage.</p><p>The Thailand case study will offer a closer look at the same questions in one national context. It is an additional perspective, not evidence of a result already established.</p><div class="tags"><span>Wheat</span><span>Rice</span><span>Maize</span><span>CRISP-DM</span></div></div></div>
+  </section>
+  <section id="data" class="section tinted" aria-labelledby="data-title">
+    <div class="section-heading"><span class="kicker">02 / THE DATA</span><h2 id="data-title">A verified starting point<span class="period">.</span></h2><p>Collection and preparation counts, checked against saved datasets and independent audits. Open a card for context.</p></div>
+    <div id="dataset-stats" class="stats-grid"></div>
+    <h3 class="subheading">Complete merged crop coverage</h3>
+    <div class="table-scroll" role="region" aria-label="Crop coverage table, scroll horizontally if needed" tabindex="0"><table><caption>Each observation represents one country or territory, crop, and year with complete climate information.</caption><thead><tr><th scope="col">Crop</th><th scope="col">Observations</th><th scope="col">Countries &amp; territories</th><th scope="col">Observed years</th></tr></thead><tbody id="crop-coverage"></tbody></table></div>
+    <p class="note">Coverage differs by crop and country. A year range does not mean every country has observations in every year.</p>
+    <div class="unit-grid"><p><strong>Crop yield</strong><span>Tonnes per hectare</span></p><p><strong>Temperature</strong><span>Annual average, degrees Celsius</span></p><p><strong>Precipitation</strong><span>Annual total, millimeters per year; includes rain and snow</span></p></div>
+    <h3 class="subheading">Source library</h3><p class="body-note">The five CSV exports were downloaded from Our World in Data. Upstream sources include FAOSTAT for crop yields and ERA5/Copernicus for climate. Wheat and maize also have supplemental historical or national sources.</p>
+    <div id="source-cards" class="source-grid"></div>
+  </section>
+  <section id="preparation" class="section" aria-labelledby="preparation-title">
+    <div class="section-heading"><span class="kicker">03 / DATA PREPARATION</span><h2 id="preparation-title">From source to study dataset<span class="period">.</span></h2><p>A documented preparation process, with original downloads preserved.</p></div>
+    <ol id="cleaning-workflow" class="workflow"></ol>
+    <div class="merge-panel"><div><span class="kicker">COMPLETE-CASE MATCHING</span><h3>Every included crop record has both climate measurements.</h3><p id="merge-explanation"></p></div><div><div class="merge-bar" aria-hidden="true"><span id="merge-kept"></span><span id="merge-excluded"></span></div><dl id="merge-counts" class="merge-counts"></dl></div></div>
+    <p class="note">Unmatched observations were excluded because climate coverage was incomplete. They are not classified as erroneous yield measurements. Statistical outliers were retained for later investigation.</p>
+  </section>
+  <section id="progress" class="section tinted" aria-labelledby="progress-title">
+    <div class="section-heading"><span class="kicker">04 / RESEARCH LOG</span><h2 id="progress-title">Progress updates<span class="period">.</span></h2><p>The research as it happens. Open an entry to see completed work, issues, and next steps.</p></div>
+    <div class="timeline-toolbar"><label for="milestone-filter">Filter by milestone</label><select id="milestone-filter"><option value="all">All milestones</option></select><p id="update-count" class="note" role="status" aria-live="polite"></p></div>
+    <div id="updates" class="updates"></div>
+  </section>
+  <section id="methodology" class="section" aria-labelledby="method-title">
+    <div class="section-heading"><span class="kicker">05 / CRISP-DM</span><h2 id="method-title">A method, step by step<span class="period">.</span></h2><p>Completed preparation is the foundation. The research question remains open.</p></div>
+    <ol id="method-stages" class="method-grid"></ol>
+    <div class="planned-models"><h3>Planned regression models</h3><p>Linear Regression, Decision Tree Regressor, and Random Forest Regressor have not been implemented. Chronological validation, a simple baseline predictor, and MAE, RMSE, and R² evaluation are planned.</p><div class="tags"><span>Linear Regression · planned</span><span>Decision Tree · planned</span><span>Random Forest · planned</span></div></div>
+  </section>
+  <section id="results" class="section results-section" aria-labelledby="results-title">
+    <div class="section-heading"><span class="kicker">06 / VERIFIED PROGRESS</span><h2 id="results-title">Research Results<span class="period">.</span></h2><p>Current results describe data preparation and quality, not climate effects or crop resilience.</p></div>
+    <div class="quality-grid"><article class="quality-card"><span class="status-badge verified">Locally verified</span><h3>Merge integrity</h3><ul id="quality-findings"></ul></article><article class="quality-card"><span class="status-badge caution">Limitations remain</span><h3>Interpretation needs care</h3><ul id="research-limitations"></ul></article></div>
+    <div class="result-placeholder"><div class="placeholder-icon" aria-hidden="true">↗</div><div><h3>Next phase: analysis</h3><p>Statistical analysis, climate anomaly calculations, crop stability comparisons, and machine learning evaluations are planned for the next phase.</p><p class="note">No correlations, crop rankings, model scores, or final research conclusions have been produced.</p></div></div>
+  </section>
+  <section id="resources" class="section" aria-labelledby="resources-title">
+    <div class="section-heading"><span class="kicker">07 / FILES &amp; REFERENCES</span><h2 id="resources-title">Follow the evidence<span class="period">.</span></h2><p>Source documentation and project resources.</p></div>
+    <div class="cards"><article class="data-card"><span class="card-num">PROJECT CODE</span><h3>Public repository</h3><p>Project documentation and source files. Dated updates remain part of the research record.</p><a id="repoLink" href="https://github.com/PI9000X/DataMining_website" target="_blank" rel="noopener noreferrer">Explore the repository ↗</a></article><article class="data-card"><span class="card-num">RESEARCH DOCUMENTS</span><h3>Publication still to come</h3><p>The independent preparation audits have been reviewed locally. Links to public audit documents, the final paper, and presentations will be added when available.</p><span class="status-badge pending">Public documents pending</span></article></div>
+    <p class="note">Use the source library above for original dataset pages. Local integrity checks establish consistency with saved sources, not independent certification of every upstream estimate.</p>
+  </section>
+  <section class="footer-cta"><span class="kicker">STAY IN THE LOOP</span><h2>Research is a process.<br><em>Follow the journey.</em></h2><a id="footerRepo" class="btn primary" href="https://github.com/PI9000X/DataMining_website" target="_blank" rel="noopener noreferrer">View repository ↗</a></section>
+</main>
+<noscript><p class="noscript-note">Enable JavaScript to view verified dataset counts, the preparation workflow, and dated updates. The research overview, pending-work status, and repository link remain available above.</p></noscript>
+<footer><span>© <span id="year"></span> Agriculture &amp; Climate Resilience</span><span>Last updated <time class="last-updated"></time> · Research journal on GitHub Pages</span></footer>
+</body>
+</html>
