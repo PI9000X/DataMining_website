@@ -1,0 +1,56 @@
+[
+  {
+    "original_path": "charts/m3/model_performance_comparison.png",
+    "website_path": "assets/research/m3-models.png",
+    "sha256": "56b7c7ec660647f26d9438a870358e3888c52161c5c1aebb19c92b2d1226269d",
+    "source_tables": "results/tables/m3/model_comparison.csv"
+  },
+  {
+    "original_path": "results/global_improvement_v3/charts/prediction_mae.png",
+    "website_path": "assets/research/v3-prediction.png",
+    "sha256": "5514168340f9b5a9410a25358e622133b1e20ac1756bb5f7d772a67521d1c62b",
+    "source_tables": "results/global_improvement_v3/tables/prediction_scores.csv"
+  },
+  {
+    "original_path": "results/global_improvement_v3/charts/temperature_relationship.png",
+    "website_path": "assets/research/v3-temperature.png",
+    "sha256": "04b8f4f88fcbb6abf889070527e5ca85f91e5e8a9b24745e53e8de3e1bda7c7f",
+    "source_tables": "results/global_improvement_v3/tables/analysis_records.csv;results/global_improvement_v3/tables/scatter_bins.csv"
+  },
+  {
+    "original_path": "results/global_improvement_v3/charts/precipitation_relationship.png",
+    "website_path": "assets/research/v3-precipitation.png",
+    "sha256": "f2ab457ae02232b8da3d39b8c4466c12429b57153f65345e004e5772b90b6d2b",
+    "source_tables": "results/global_improvement_v3/tables/analysis_records.csv;results/global_improvement_v3/tables/scatter_bins.csv"
+  },
+  {
+    "original_path": "results/global_improvement_v3/charts/matched_stability.png",
+    "website_path": "assets/research/v3-stability.png",
+    "sha256": "3aec538741fb535488f3590bd31d7d659636119530f6c6083f49ec00141496fb",
+    "source_tables": "results/global_improvement_v3/tables/stability_summary.csv"
+  },
+  {
+    "original_path": "results/global_improvement_v3/charts/event_yield_departures.png",
+    "website_path": "assets/research/v3-events.png",
+    "sha256": "7333f535649d6b6a7de8786eed1293331bd8fcc92c3b2763d2cf9928b59e3182",
+    "source_tables": "results/global_improvement_v3/tables/stability_summary.csv"
+  },
+  {
+    "original_path": "results/southeast_asia_small_sample_v1/charts/model_mae.png",
+    "website_path": "assets/research/regional-models.png",
+    "sha256": "e8eb57adf057a443631a6a71f93236b722d42248d1a768d2c8d25aea72bcf896",
+    "source_tables": "results/southeast_asia_small_sample_v1/model_comparison.csv;results/southeast_asia_small_sample_v1/feature_comparison.csv;results/southeast_asia_small_sample_v1/model_complexity.csv;results/southeast_asia_small_sample_v1/tables/paired_group_gains.csv;results/southeast_asia_small_sample_v1/tables/original_reference_complexity.csv"
+  },
+  {
+    "original_path": "results/southeast_asia_small_sample_v1/charts/early_tree_capacity.png",
+    "website_path": "assets/research/regional-capacity.png",
+    "sha256": "a7ed7a597eec920fbabb8f2fd8cf98e0bc608f42c2f93128789a8e41d21858d3",
+    "source_tables": "results/southeast_asia_small_sample_v1/model_comparison.csv;results/southeast_asia_small_sample_v1/feature_comparison.csv;results/southeast_asia_small_sample_v1/model_complexity.csv;results/southeast_asia_small_sample_v1/tables/paired_group_gains.csv;results/southeast_asia_small_sample_v1/tables/original_reference_complexity.csv"
+  },
+  {
+    "original_path": "results/southeast_asia_small_sample_v1/charts/feature_gains.png",
+    "website_path": "assets/research/regional-features.png",
+    "sha256": "dc6f748f607005923346bee91990c1cfd5c36cfa4a80c32cf9639abb73ea8d3b",
+    "source_tables": "results/southeast_asia_small_sample_v1/model_comparison.csv;results/southeast_asia_small_sample_v1/feature_comparison.csv;results/southeast_asia_small_sample_v1/model_complexity.csv;results/southeast_asia_small_sample_v1/tables/paired_group_gains.csv;results/southeast_asia_small_sample_v1/tables/original_reference_complexity.csv"
+  }
+]

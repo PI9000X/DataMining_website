@@ -1,173 +1,46 @@
 'use strict';
-
 (() => {
-  const data = projectData;
-  const stats = data.statistics;
-  const format = new Intl.NumberFormat('en-US');
-  const number = value => format.format(value);
-  const make = (tag, text, className) => {
-    const element = document.createElement(tag);
-    if (text !== undefined) element.textContent = text;
-    if (className) element.className = className;
-    return element;
+  const data=projectData;
+  const make=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;};
+  const number=n=>new Intl.NumberFormat('en-US').format(n);
+  const metric=n=>Number(n).toFixed(4);
+  const date=d=>new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(d+'T12:00:00Z'));
+  const publicLink=(text,url)=>{const u=new URL(url);if(u.protocol!=='https:')throw new Error('Unsupported source URL');const a=make('a',text);a.href=u.href;a.target='_blank';a.rel='noopener noreferrer';return a;};
+  for(const id of ['repoLink','footerRepo'])document.getElementById(id).href=data.repository;
+  document.getElementById('project-status').textContent=data.status;
+  document.getElementById('year').textContent=String(new Date().getFullYear());
+  document.querySelectorAll('.last-updated').forEach(t=>{t.dateTime=data.verifiedOn;t.textContent=date(data.verifiedOn);});
+  const cards=[['originalRecords','Original source rows','Rows across five crop and weather tables, not unique crop observations.'],['mergedRecords','Global crop records','Unique country/year/crop observations with both climate measurements.'],['entities','Countries & territories','Current ISO3 identifiers in the global merge, with unequal coverage.'],['crops','Research crops','Wheat, rice and maize; numerical stability is not universal resilience.'],['regionalRecords','Southeast Asian records','All 743 original crop rows remain in the enriched panel, including missing-input rows.'],['excludedRecords','Incomplete climate joins','Crop rows retained in an exclusion audit, not classified as erroneous yields.']];
+  cards.forEach(([key,title,text])=>{const d=make('details',undefined,'stat-card'),s=make('summary');s.append(make('span',number(data.statistics[key]),'stat-number'),make('span',title,'stat-label'),make('span','What this count means','stat-hint'));d.append(s,make('p',text));document.getElementById('dataset-stats').append(d);});
+  data.cropCoverage.forEach(c=>{const r=make('tr'),h=make('th',c.crop);h.scope='row';r.append(h,make('td',number(c.records)),make('td',number(c.entities)),make('td',c.start+'–'+c.end));document.getElementById('crop-coverage').append(r);});
+  data.sources.forEach(s=>{const d=make('details',undefined,'source-card source-disclosure'),summary=make('summary');summary.append(make('span',s.status,'source-status'),make('span',s.name,'source-name'),make('span',s.unit,'source-unit'));d.append(summary);[['Provider / processing',s.provider],['Variable',s.variable],['Coverage',s.coverage],['Retrieved',s.retrieved],['Licence evidence',s.licence],['Limitations',s.limitation]].forEach(([label,text])=>{const p=make('p');p.append(make('strong',label+': '),document.createTextNode(text));d.append(p);});d.append(publicLink('Source documentation ↗',s.url));document.getElementById('source-cards').append(d);});
+  const stats=data.statistics;
+  document.getElementById('merge-kept').style.width=stats.mergedRecords/stats.cleanedCropRecords*100+'%';
+  document.getElementById('merge-excluded').style.width=stats.excludedRecords/stats.cleanedCropRecords*100+'%';
+  [['Included',stats.mergedRecords],['Incomplete climate',stats.excludedRecords]].forEach(([label,n])=>document.getElementById('merge-counts').append(make('dt',label),make('dd',number(n))));
+  data.methodology.forEach((s,i)=>{const li=make('li',undefined,'method-card');li.append(make('span',String(i+1).padStart(2,'0'),'card-num'),make('h3',s.title),make('span',s.state,'status-badge '+(i===5?'pending':'verified')),make('p',s.detail));document.getElementById('method-stages').append(li);});
+  // Tables never merge incompatible studies into an accuracy leaderboard.
+  const metricTable=(id,rows,caption)=>{
+    const target=document.getElementById(id);target.replaceChildren();const wrap=make('div',undefined,'table-scroll');wrap.tabIndex=0;wrap.setAttribute('role','region');wrap.setAttribute('aria-label',caption);
+    const table=make('table'),head=make('thead'),tr=make('tr'),body=make('tbody');table.append(make('caption',caption));
+    ['Method','N','MAE ↓','RMSE ↓','R²'].forEach(text=>{const th=make('th',text);th.scope='col';tr.append(th);});head.append(tr);
+    rows.forEach(r=>{const row=make('tr'),th=make('th',r.method);th.scope='row';row.dataset.model=r.id;row.append(th,make('td',number(r.n)),make('td',metric(r.mae)),make('td',metric(r.rmse)),make('td',metric(r.r2)));body.append(row);});
+    table.append(head,body);wrap.append(table);target.append(wrap);
   };
-  const prettyDate = value => new Intl.DateTimeFormat('en-GB', {
-    day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
-  }).format(new Date(value + 'T12:00:00Z'));
-  const publicLink = item => {
-    try {
-      const url = new URL(item.url);
-      if (url.protocol !== 'https:') return null;
-      const link = make('a', item.label || item.name);
-      link.href = url.href;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      return link;
-    } catch { return null; }
-  };
-  for (const id of ['repoLink', 'footerRepo']) document.getElementById(id).href = data.repository;
-  document.getElementById('project-status').textContent = data.status;
-  document.getElementById('year').textContent = String(new Date().getFullYear());
-
-  // Keep the latest unique, dated entries without silently duplicating milestones.
-  const seen = new Set();
-  const entries = projectUpdates.filter(item => {
-    if (!item.id || seen.has(item.id) || !/^\d{4}-\d{2}-\d{2}$/.test(item.date) ||
-        Number.isNaN(Date.parse(item.date + 'T12:00:00Z'))) return false;
-    seen.add(item.id);
-    return true;
-  }).sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));
-  const updated = entries.map(item => item.date).concat(data.verifiedOn).sort().at(-1);
-  document.querySelectorAll('.last-updated').forEach(time => {
-    time.dateTime = updated;
-    time.textContent = prettyDate(updated);
-  });
-
-  const cards = [
-    ['originalRecords', 'Original dataset records', 'Rows across the five original CSV exports, including historical entities and regional records before filtering.'],
-    ['cleanedCropRecords', 'Cleaned crop records', 'Crop observations retained after identifier, year, numeric-value, and duplicate checks.'],
-    ['mergedRecords', 'Final merged records', 'Country-year-crop observations with both climate measurements. These are preparation results, not model predictions.'],
-    ['entities', 'Countries and territories', 'Distinct ISO3 identifiers in the final file. Coverage is not universal or identical across crops.'],
-    ['crops', 'Research crops', 'Wheat, rice, and maize. No stability ranking has been calculated.'],
-    ['thailandRecords', 'Thailand observations', 'Complete merged crop-year observations for the planned secondary case study.']
-  ];
-  for (const [key, title, description] of cards) {
-    const details = make('details', undefined, 'stat-card');
-    const summary = make('summary');
-    summary.append(make('span', number(stats[key]), 'stat-number'),
-      make('span', title, 'stat-label'), make('span', 'What this count means', 'stat-hint'));
-    details.append(summary, make('p', description));
-    document.getElementById('dataset-stats').append(details);
-  }
-  for (const crop of data.cropCoverage) {
-    const row = make('tr');
-    const heading = make('th', crop.crop); heading.scope = 'row';
-    row.append(heading, make('td', number(crop.records)), make('td', number(crop.entities)),
-      make('td', crop.start + '–' + crop.end));
-    document.getElementById('crop-coverage').append(row);
-  }
-  for (const source of data.sources) {
-    const card = make('article', undefined, 'source-card');
-    card.append(make('h4', source.name), make('p', source.detail));
-    const link = publicLink({ ...source, label: 'View ' + source.name.toLowerCase() + ' source ↗' });
-    if (link) card.append(link);
-    document.getElementById('source-cards').append(card);
-  }
-  for (const step of data.workflow) {
-    const item = make('li');
-    item.append(make('h3', step.title), make('p', step.detail));
-    document.getElementById('cleaning-workflow').append(item);
-  }
-  document.getElementById('merge-explanation').textContent =
-    number(stats.cleanedCropRecords) + ' cleaned crop observations were considered. ' +
-    number(stats.excludedRecords) + ' lacked matching complete climate information, leaving ' +
-    number(stats.mergedRecords) + ' observations for later analysis.';
-  const keptPercentage = stats.mergedRecords / stats.cleanedCropRecords * 100;
-  document.getElementById('merge-kept').style.width = keptPercentage + '%';
-  document.getElementById('merge-excluded').style.width = (100 - keptPercentage) + '%';
-  for (const [title, value] of [['Included', stats.mergedRecords], ['Incomplete climate coverage', stats.excludedRecords]]) {
-    document.getElementById('merge-counts').append(make('dt', title), make('dd', number(value)));
-  }
-
-  const filter = document.getElementById('milestone-filter');
-  for (const milestone of [...new Set(entries.map(item => item.milestone))].sort()) {
-    const option = make('option', milestone); option.value = milestone; filter.append(option);
-  }
-  const listBlock = (heading, items) => {
-    const section = make('section');
-    section.append(make('h4', heading));
-    const list = make('ul');
-    items.forEach(item => list.append(make('li', item)));
-    section.append(list);
-    return section;
-  };
-  const renderUpdates = () => {
-    const target = document.getElementById('updates');
-    target.replaceChildren();
-    const selected = entries.filter(item => filter.value === 'all' || item.milestone === filter.value);
-    document.getElementById('update-count').textContent = selected.length + (selected.length === 1 ? ' update' : ' updates');
-    if (!selected.length) {
-      target.append(make('p', 'No updates here yet. Choose another milestone or check back as the research progresses.', 'empty-state'));
-      return;
-    }
-    for (const item of selected) {
-      const article = make('article', undefined, 'update'); article.id = 'update-' + item.id;
-      const date = make('time', prettyDate(item.date)); date.dateTime = item.date;
-      const content = make('div');
-      const badges = make('div', undefined, 'update-badges');
-      badges.append(make('span', item.milestone, 'pill'), make('span', item.status, 'status-badge'));
-      content.append(make('h3', item.title), make('p', item.summary), badges);
-      if (['completed', 'issues', 'nextSteps', 'links'].some(key => item[key]?.length)) {
-        const details = make('details', undefined, 'update-details');
-        details.append(make('summary', 'Read milestone details'));
-        for (const [key, label] of [['completed', 'Work completed'], ['issues', 'Issues and limitations'], ['nextSteps', 'Next steps']]) {
-          if (item[key]?.length) details.append(listBlock(label, item[key]));
-        }
-        if (item.links?.length) {
-          const links = make('div', undefined, 'supporting-links');
-          for (const resource of item.links) { const link = publicLink(resource); if (link) links.append(link); }
-          details.append(links);
-        }
-        content.append(details);
-      }
-      article.append(date, content); target.append(article);
-    }
-  };
-  filter.addEventListener('change', renderUpdates);
-  renderUpdates();
-
-  data.methodology.forEach((stage, index) => {
-    const item = make('li', undefined, 'method-card');
-    item.append(make('span', String(index + 1).padStart(2, '0'), 'card-num'),
-      make('h3', stage.title), make('span', stage.state, 'status-badge ' + stage.kind), make('p', stage.detail));
-    document.getElementById('method-stages').append(item);
-  });
-  [
-    number(stats.duplicateKeys) + ' duplicate country-year-crop keys in the final dataset.',
-    'No unexpected row multiplication during integration.',
-    'All ' + number(stats.matchedMeasurements) + ' measurements across ' + number(stats.mergedRecords) +
-      ' merged observations matched saved local source records in the independent audit.',
-    'Statistically flagged outliers were retained for investigation.'
-  ].forEach(item => document.getElementById('quality-findings').append(make('li', item)));
-  [
-    'Country and crop coverage is unequal; these counts do not represent a balanced global panel.',
-    'The only complete crop observation for 2025 is US maize.',
-    'Calendar-year climate may not align with each crop’s growing season. Historical boundary compatibility is partly unverified.',
-    'Associations require further analysis; the research question has not been answered.'
-  ].forEach(item => document.getElementById('research-limitations').append(make('li', item)));
-
-  const menu = document.getElementById('menuBtn');
-  const nav = document.getElementById('nav');
-  const setMenu = open => {
-    nav.classList.toggle('open', open);
-    menu.setAttribute('aria-expanded', String(open));
-    menu.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-  };
-  menu.addEventListener('click', () => setMenu(menu.getAttribute('aria-expanded') !== 'true'));
-  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') { setMenu(false); menu.focus(); }
-  });
-  document.addEventListener('click', event => { if (!event.target.closest('.topbar')) setMenu(false); });
-  window.matchMedia('(min-width: 1101px)').addEventListener('change', () => setMenu(false));
+  metricTable('m3-table',data.m3,'Original M3 test · 2016–2024 · conventional yield-anomaly percentage-point errors');
+  metricTable('v3-table',data.v3,'Global V3 historical validation · 1996–2015 · historical-yield-scale error points');
+  const renderRegional=()=>{const cohort=document.getElementById('regional-cohort').value;const label=cohort==='rice_maize'?'Rice and maize':'All crops';metricTable('regional-initial-table',data.regional[cohort],label+' · initial regional comparison · 1996–2015 · historical-scale points');metricTable('regional-small-table',data.small[cohort].filter(r=>data.smallFeatured.includes(r.id)),label+' · selected small-sample comparisons · 1996–2015 · historical-scale points');metricTable('regional-all-table',data.small[cohort],label+' · all 14 fixed approaches · 1996–2015 · historical-scale points');};
+  document.getElementById('regional-cohort').addEventListener('change',renderRegional);renderRegional();
+  const simpleTable=(id,caption,headers,rows)=>{const wrap=make('div',undefined,'table-scroll');wrap.tabIndex=0;wrap.setAttribute('role','region');wrap.setAttribute('aria-label',caption);const table=make('table'),head=make('thead'),hr=make('tr'),body=make('tbody');table.append(make('caption',caption));headers.forEach(text=>{const th=make('th',text);th.scope='col';hr.append(th);});head.append(hr);rows.forEach(values=>{const tr=make('tr');values.forEach((text,i)=>{const e=make(i===0?'th':'td',text);if(i===0)e.scope='row';tr.append(e);});body.append(tr);});table.append(head,body);wrap.append(table);document.getElementById(id).append(wrap);};
+  simpleTable('stability-table','Primary matched global comparison · 61 countries · 1,219 identical country-years per crop',['Crop','Mean country SD (historical-scale points)','Country-years per crop'],data.stability.map(r=>[r.crop,metric(r.sd),number(r.n)]));
+  simpleTable('correlation-table','Global V3 · 1996–2015 · correlations with five-year-centred historical-scale yield deviation',['Crop','N','Temperature Pearson','Temperature Spearman','Precipitation Pearson','Precipitation Spearman'],data.correlations.map(r=>[r.crop,number(r.n),metric(r.temperature_pearson),metric(r.temperature_spearman),metric(r.rainfall_pearson),metric(r.rainfall_spearman)]));
+  const filter=document.getElementById('milestone-filter'),seen=new Set();
+  const entries=projectUpdates.filter(r=>{if(!r.id||seen.has(r.id)||!/^\d{4}-\d{2}-\d{2}$/.test(r.date)||Number.isNaN(Date.parse(r.date)))return false;seen.add(r.id);return true;}).sort((a,b)=>b.date.localeCompare(a.date)||(b.order||0)-(a.order||0));
+  [...new Set(entries.map(r=>r.milestone))].forEach(text=>{const o=make('option',text);o.value=text;filter.append(o);});
+  const renderUpdates=()=>{const target=document.getElementById('updates');target.replaceChildren();const selected=entries.filter(r=>filter.value==='all'||r.milestone===filter.value);document.getElementById('update-count').textContent=selected.length+(selected.length===1?' update':' updates');selected.forEach(r=>{const article=make('article',undefined,'update'),time=make('time',date(r.date)),content=make('div'),badges=make('div',undefined,'update-badges');article.id='update-'+r.id;time.dateTime=r.date;badges.append(make('span',r.milestone,'pill'),make('span',r.status,'status-badge'));content.append(make('h3',r.title),make('p',r.summary),badges);const details=make('details',undefined,'update-details');details.append(make('summary','Read research details'));[['completed','Work completed'],['issues','Issues and limitations'],['nextSteps','Next steps']].forEach(([key,title])=>{if(!r[key]?.length)return;const section=make('section'),ul=make('ul');section.append(make('h4',title));r[key].forEach(text=>ul.append(make('li',text)));section.append(ul);details.append(section);});if(r.links?.length){const links=make('div',undefined,'supporting-links');r.links.forEach(l=>links.append(publicLink(l.label,l.url)));details.append(links);}content.append(details);article.append(time,content);target.append(article);});};
+  filter.addEventListener('change',renderUpdates);renderUpdates();
+  const menu=document.getElementById('menuBtn'),nav=document.getElementById('nav');
+  const setMenu=open=>{nav.classList.toggle('open',open);menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close navigation':'Open navigation');};
+  menu.addEventListener('click',()=>setMenu(menu.getAttribute('aria-expanded')!=='true'));nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.getAttribute('aria-expanded')==='true'){setMenu(false);menu.focus();}});document.addEventListener('click',e=>{if(!e.target.closest('.topbar'))setMenu(false);});window.matchMedia('(min-width: 1101px)').addEventListener('change',()=>setMenu(false));
 })();
