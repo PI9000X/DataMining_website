@@ -157,8 +157,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 64925,
-      "sha256": "8a8d6b1181b9d53f0dbfe87ca349aca493dede290e667e52ec88ac9353ad35c0"
+      "bytes": 65001,
+      "sha256": "e7c747a7eda0802260f46419c9a85a45aa3c2ba2fe00083d2abe66bbc2801d39"
     },
     {
       "path": "model_artifact_inventory.md",
@@ -172,8 +172,8 @@
     },
     {
       "path": "refinements.css",
-      "bytes": 7187,
-      "sha256": "e9098fc21d3fb960209426aeafc8774de9dfb5e1468e4d3757ff38384c2f6235"
+      "bytes": 11509,
+      "sha256": "14b20298a2feb69bdf80e618a5899036aaf8df8ecabc685df8bac01152b35ec7"
     },
     {
       "path": "refinements.js",
@@ -232,8 +232,8 @@
     },
     {
       "path": "script.js",
-      "bytes": 11462,
-      "sha256": "6eccb4948eb1ca4dd5c31854a83e535d2c9feccf0e58c71f284ff4bb23e19a78"
+      "bytes": 11483,
+      "sha256": "ef1c1a2f3214c65cc97767453d08eabde22438f2b1d947ac6138c20f396edf47"
     },
     {
       "path": "site-data.js",
@@ -261,6 +261,6 @@
       "sha256": "9e6c88aa145dc03ea1413818ac8beb27607aa806ca1f03012246712b7d91e144"
     }
   ],
-  "total_bytes_excluding_manifest": 3428272,
-  "note": "Actual static website export. Original research data/model binaries, caches, preview tooling, backups and README changes are excluded. Selected linked source and evaluation/report artifacts retain original bytes. No model fitting."
+  "total_bytes_excluding_manifest": 3432691,
+  "note": "Actual static website export. Original research data/model binaries, caches, preview tooling, backups and README changes are excluded. Selected linked source and evaluation/report artifacts retain original bytes. No model fitting. Navigation layout, shared page boundaries and versioned main-page stylesheet URLs corrected on 2026-11-19; research content unchanged."
 }
