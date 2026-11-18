@@ -52,5 +52,12 @@
     "website_path": "assets/research/regional-features.png",
     "sha256": "dc6f748f607005923346bee91990c1cfd5c36cfa4a80c32cf9639abb73ea8d3b",
     "source_tables": "results/southeast_asia_small_sample_v1/model_comparison.csv;results/southeast_asia_small_sample_v1/feature_comparison.csv;results/southeast_asia_small_sample_v1/model_complexity.csv;results/southeast_asia_small_sample_v1/tables/paired_group_gains.csv;results/southeast_asia_small_sample_v1/tables/original_reference_complexity.csv"
+  },
+  {
+    "original_path": "results/global_improvement_v2/charts/reference_comparison.png",
+    "website_path": "assets/research/v2-references.png",
+    "sha256": "06c0dccf91ab098d6efa0a4df7e9f79ab6674aca4c05e90a13fb10428d44a633",
+    "source_tables": "results/global_improvement_v2/tables/scores.csv",
+    "note": "Raw-yield fold MAE/RMSE in t/ha; table above uses the different historical-scale unit. Copied bytes verified; saved plotting source and table retained, no original per-figure hash mapping."
   }
 ]

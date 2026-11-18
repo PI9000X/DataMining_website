@@ -48,7 +48,11 @@ const projectData = {
       "retrieved": "2026-11-10",
       "licence": "Resource-specific licence not recorded in the saved export metadata; confirm source terms before redistribution.",
       "limitation": "Country coverage differs. Yield is production per harvested area; original provider estimation flags are not present in this export.",
-      "status": "Downloaded · global study"
+      "status": "Downloaded · global study",
+      "downloadUrl": "https://ourworldindata.org/grapher/wheat-yields.csv",
+      "metadataUrl": "https://ourworldindata.org/grapher/wheat-yields.metadata.json",
+      "geography": "Saved export: 174 named entities, including any aggregates/historical entities; selected/cleaned panel: 125 countries/territories. Coverage is uneven.",
+      "sourceUpdated": "2026-03-02"
     },
     {
       "name": "Rice yields",
@@ -60,7 +64,11 @@ const projectData = {
       "retrieved": "2026-11-10",
       "licence": "Resource-specific licence not recorded in the saved export metadata; confirm source terms before redistribution.",
       "limitation": "Country coverage differs. Yield is production per harvested area; original provider estimation flags are not present in this export.",
-      "status": "Downloaded · global study"
+      "status": "Downloaded · global study",
+      "downloadUrl": "https://ourworldindata.org/grapher/rice-yields.csv",
+      "metadataUrl": "https://ourworldindata.org/grapher/rice-yields.metadata.json",
+      "geography": "Saved export: 170 named entities, including any aggregates/historical entities; selected/cleaned panel: 124 countries/territories. Coverage is uneven.",
+      "sourceUpdated": "2026-02-25"
     },
     {
       "name": "Corn yields",
@@ -72,7 +80,11 @@ const projectData = {
       "retrieved": "2026-11-10",
       "licence": "Resource-specific licence not recorded in the saved export metadata; confirm source terms before redistribution.",
       "limitation": "Country coverage differs. Yield is production per harvested area; original provider estimation flags are not present in this export.",
-      "status": "Downloaded · global study"
+      "status": "Downloaded · global study",
+      "downloadUrl": "https://ourworldindata.org/grapher/maize-yields.csv",
+      "metadataUrl": "https://ourworldindata.org/grapher/maize-yields.metadata.json",
+      "geography": "Saved export: 221 named entities, including any aggregates/historical entities; selected/cleaned panel: 170 countries/territories. Coverage is uneven.",
+      "sourceUpdated": "2026-03-02"
     },
     {
       "name": "Average annual surface temperature",
@@ -84,7 +96,11 @@ const projectData = {
       "retrieved": "2026-11-10",
       "licence": "Resource-specific licence not recorded in the saved export metadata; confirm source terms before redistribution.",
       "limitation": "National annual climate, not crop-area or growing-season exposure. The project calculates its own 1961–1990 anomaly reference.",
-      "status": "Downloaded · global study"
+      "status": "Downloaded · global study",
+      "downloadUrl": "https://ourworldindata.org/grapher/average-annual-surface-temperature.csv",
+      "metadataUrl": "https://ourworldindata.org/grapher/average-annual-surface-temperature.metadata.json",
+      "geography": "Saved export: 213 named entities, including any aggregates/historical entities; selected/cleaned panel: 193 countries/territories. Coverage is uneven.",
+      "sourceUpdated": "2026-10-12"
     },
     {
       "name": "Annual precipitation",
@@ -96,7 +112,11 @@ const projectData = {
       "retrieved": "2026-11-10",
       "licence": "Resource-specific licence not recorded in the saved export metadata; confirm source terms before redistribution.",
       "limitation": "National annual climate, not crop-area or growing-season exposure. The project calculates its own 1961–1990 anomaly reference.",
-      "status": "Downloaded · global study"
+      "status": "Downloaded · global study",
+      "downloadUrl": "https://ourworldindata.org/grapher/average-precipitation-per-year.csv",
+      "metadataUrl": "https://ourworldindata.org/grapher/average-precipitation-per-year.metadata.json",
+      "geography": "Saved export: 195 named entities, including any aggregates/historical entities; selected/cleaned panel: 192 countries/territories. Coverage is uneven.",
+      "sourceUpdated": "2026-10-12"
     },
     {
       "name": "Fertilizer use per hectare of cropland",
@@ -108,7 +128,11 @@ const projectData = {
       "retrieved": "2026-11-13",
       "licence": "Saved source readme: CC BY-NC-SA 3.0 IGO. Earlier catalogue wording differed; review terms before raw-data redistribution.",
       "limitation": "Not crop-specific application, and not the attempted World Bank measure per hectare of arable land. Historical release dates are unknown.",
-      "status": "Downloaded · regional models"
+      "status": "Downloaded · regional models",
+      "downloadUrl": "https://ourworldindata.org/grapher/fertilizer-use-per-hectare-of-cropland.csv?v=1&csvType=full&useColumnShortNames=false",
+      "metadataUrl": "https://ourworldindata.org/grapher/fertilizer-use-per-hectare-of-cropland.metadata.json?v=1&csvType=full&useColumnShortNames=false",
+      "geography": "Saved export: 242 named entities, including any aggregates/historical entities; selected/cleaned panel: 5 countries/territories. Coverage is uneven.",
+      "sourceUpdated": "2026-05-22"
     },
     {
       "name": "Share of agricultural land which is irrigated",
@@ -120,7 +144,11 @@ const projectData = {
       "retrieved": "2026-11-13",
       "licence": "Saved source readme: CC BY 4.0; attribute FAO, World Bank and OWID.",
       "limitation": "Only six pre-2016 country-years, all Laos: too sparse for this five-country modeling comparison.",
-      "status": "Downloaded · excluded from models"
+      "status": "Downloaded · excluded from models",
+      "downloadUrl": "https://ourworldindata.org/grapher/agricultural-land-irrigation.csv?v=1&csvType=full&useColumnShortNames=false",
+      "metadataUrl": "https://ourworldindata.org/grapher/agricultural-land-irrigation.metadata.json?v=1&csvType=full&useColumnShortNames=false",
+      "geography": "Saved export: 121 named entities, including any aggregates/historical entities; selected/cleaned panel: 2 countries/territories. Coverage is uneven. Only Laos and Myanmar have selected-country observations.",
+      "sourceUpdated": "2026-07-27"
     }
   ],
   "m3": [
@@ -590,6 +618,141 @@ const projectData = {
       "title": "Communication",
       "state": "M4 preparation",
       "detail": "Explain research through this static journal. Final paper and presentation remain in preparation; this is not a forecasting API."
+    }
+  ],
+  "v2References": [
+    {
+      "id": "full",
+      "method": "Full-history linear reference",
+      "n": 6331,
+      "mae": 31.8492588209108,
+      "rmse": 53.86484148467101,
+      "r2": -0.0288338471069917
+    },
+    {
+      "id": "recent20",
+      "method": "Recent 20-year linear reference",
+      "n": 6331,
+      "mae": 29.61229747676441,
+      "rmse": 48.57369402958805,
+      "r2": 0.1633636363849673
+    },
+    {
+      "id": "mean5",
+      "method": "Previous five-year mean reference",
+      "n": 6331,
+      "mae": 27.849641466684893,
+      "rmse": 47.34793708358036,
+      "r2": 0.2050558917665078
+    }
+  ],
+  "adjustedAssociations": [
+    {
+      "crop": "maize",
+      "term": "temperature_C",
+      "coefficient": -3.327231269228993,
+      "low95": -10.276427962851532,
+      "high95": 3.6219654243935455,
+      "n": 2493,
+      "clusters": 127
+    },
+    {
+      "crop": "maize",
+      "term": "precipitation_per_10pp",
+      "coefficient": 1.3785581477420836,
+      "low95": -0.6337470332954023,
+      "high95": 3.3908633287795693,
+      "n": 2493,
+      "clusters": 127
+    },
+    {
+      "crop": "maize",
+      "term": "temperature_x_precipitation",
+      "coefficient": 0.5494619432421268,
+      "low95": -1.501698025328668,
+      "high95": 2.600621911812921,
+      "n": 2493,
+      "clusters": 127
+    },
+    {
+      "crop": "rice",
+      "term": "temperature_C",
+      "coefficient": 0.2840702028555974,
+      "low95": -4.26810595049067,
+      "high95": 4.8362463562018645,
+      "n": 2021,
+      "clusters": 102
+    },
+    {
+      "crop": "rice",
+      "term": "precipitation_per_10pp",
+      "coefficient": 0.933532153138804,
+      "low95": -0.6702217798884791,
+      "high95": 2.537286086166086,
+      "n": 2021,
+      "clusters": 102
+    },
+    {
+      "crop": "rice",
+      "term": "temperature_x_precipitation",
+      "coefficient": 0.4191352252678961,
+      "low95": -1.235445560329425,
+      "high95": 2.0737160108652173,
+      "n": 2021,
+      "clusters": 102
+    },
+    {
+      "crop": "wheat",
+      "term": "temperature_C",
+      "coefficient": -2.403663791555644,
+      "low95": -7.821463292488425,
+      "high95": 3.014135709377137,
+      "n": 1817,
+      "clusters": 94
+    },
+    {
+      "crop": "wheat",
+      "term": "precipitation_per_10pp",
+      "coefficient": -0.0589485956257531,
+      "low95": -1.608697306188681,
+      "high95": 1.4908001149371746,
+      "n": 1817,
+      "clusters": 94
+    },
+    {
+      "crop": "wheat",
+      "term": "temperature_x_precipitation",
+      "coefficient": 1.2028910645319453,
+      "low95": -0.2411797751918865,
+      "high95": 2.646961904255777,
+      "n": 1817,
+      "clusters": 94
+    }
+  ],
+  "stabilityPairs": [
+    {
+      "first_crop": "wheat",
+      "second_crop": "rice",
+      "countries": 61,
+      "difference": 4.59448032442425,
+      "low95": -1.750303848554003,
+      "high95": 11.93509166609834
+    },
+    {
+      "first_crop": "wheat",
+      "second_crop": "maize",
+      "countries": 61,
+      "difference": -8.368400194129407,
+      "low95": -17.753783430414714,
+      "high95": 0.6970888650556449
+    },
+    {
+      "first_crop": "rice",
+      "second_crop": "maize",
+      "countries": 61,
+      "difference": -12.962880518553654,
+      "low95": -21.898919193688496,
+      "high95": -5.355811696669921
     }
   ]
 };

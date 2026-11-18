@@ -45,3 +45,6 @@ Regional small sample,all_crops,1996-2015,historical-yield-scale points,forest__
 Regional small sample,all_crops,1996-2015,historical-yield-scale points,forest__climate,Small Random Forest + climate,220,27.53717970724164,41.18463987143604,0.2351642762424923
 Regional small sample,all_crops,1996-2015,historical-yield-scale points,forest__fertilizer,Small Random Forest + fertilizer,220,27.37454292452945,41.07873271441125,0.2390928005043313
 Regional small sample,all_crops,1996-2015,historical-yield-scale points,forest__both,Small Random Forest + climate + fertilizer,220,27.23922628343943,40.91208594042267,0.2452539217116498
+V2 reference comparison,global,1996-2015,historical-yield-scale points,full,Full-history linear reference,6331,31.8492588209108,53.86484148467101,-0.0288338471069917
+V2 reference comparison,global,1996-2015,historical-yield-scale points,recent20,Recent 20-year linear reference,6331,29.61229747676441,48.57369402958805,0.1633636363849673
+V2 reference comparison,global,1996-2015,historical-yield-scale points,mean5,Previous five-year mean reference,6331,27.849641466684893,47.34793708358036,0.2050558917665078
