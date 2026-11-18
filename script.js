@@ -48,3 +48,6 @@
   menu.addEventListener('click',()=>setMenu(menu.getAttribute('aria-expanded')!=='true'));nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.getAttribute('aria-expanded')==='true'){setMenu(false);menu.focus();}});document.addEventListener('click',e=>{if(!e.target.closest('.topbar'))setMenu(false);});window.matchMedia('(min-width: 1101px)').addEventListener('change',()=>setMenu(false));
 })();
+
+// UI-only grouped navigation.
+(()=>{const groups=[...document.querySelectorAll('#nav .nav-group')];const close=except=>groups.forEach(g=>{if(g!==except)g.open=false;});groups.forEach(g=>{g.addEventListener('toggle',()=>{if(g.open)close(g);});g.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>close()));});document.addEventListener('click',e=>{if(!e.target.closest('#nav .nav-group'))close();});document.addEventListener('keydown',e=>{if(e.key==='Escape'){const active=groups.find(g=>g.open);close();if(active)active.querySelector('summary').focus();}});})();

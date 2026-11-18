@@ -1,0 +1,150 @@
+{
+  "features": [
+    "temperature_anomaly_c",
+    "precipitation_anomaly_pct",
+    "crop",
+    "iso3"
+  ],
+  "target": "yield_anomaly_pct",
+  "target_unit": "percentage points of detrended yield anomaly",
+  "preprocessing": "StandardScaler for two numeric features; OneHotEncoder for crop and iso3; fit on training only",
+  "country_justification": "Known-country historical panel prediction; country is a categorical identifier, not an ordinal number",
+  "intended_use": "Contemporaneous weather-conditioned anomaly estimation for known countries; not a preseason forecast",
+  "unknown_categories": "OneHotEncoder(handle_unknown='ignore'); unsupported yield histories remain ineligible",
+  "climate_reference": {
+    "start": 1961,
+    "end": 1990,
+    "minimum_years": 20,
+    "precipitation_minimum_mm": 1.0
+  },
+  "yield_trend": {
+    "method": "OLS linear yield versus year-1961 separately for each iso3/crop",
+    "minimum_years": 20,
+    "minimum_expected_yield_t_ha": 0.1,
+    "fit_end": 2015
+  },
+  "training": {
+    "start": 1961,
+    "end": 2015,
+    "n": 18914
+  },
+  "testing": {
+    "start": 2016,
+    "end": 2024,
+    "n": 3370
+  },
+  "versions": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "joblib": "1.6.0"
+  },
+  "python": "3.11.9",
+  "scikit_learn": "1.9.1",
+  "random_seed": 324,
+  "model_settings": {
+    "zero_baseline": {
+      "constant": 0.0,
+      "quantile": null,
+      "strategy": "constant"
+    },
+    "linear_regression": {
+      "copy_X": true,
+      "fit_intercept": true,
+      "n_jobs": null,
+      "positive": false,
+      "tol": 1e-06
+    },
+    "decision_tree": {
+      "ccp_alpha": 0.0,
+      "criterion": "squared_error",
+      "max_depth": 3,
+      "max_features": null,
+      "max_leaf_nodes": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 40,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "random_state": 324,
+      "splitter": "best"
+    },
+    "random_forest": {
+      "bootstrap": true,
+      "ccp_alpha": 0.0,
+      "criterion": "squared_error",
+      "max_depth": 6,
+      "max_features": 0.8,
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 20,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 100,
+      "n_jobs": 2,
+      "oob_score": false,
+      "random_state": 324,
+      "verbose": 0,
+      "warm_start": false
+    }
+  },
+  "selection": {
+    "selection_metric": "observation-weighted validation MAE",
+    "settings": {
+      "zero_baseline": {},
+      "linear_regression": {},
+      "decision_tree": {
+        "max_depth": 3,
+        "min_samples_leaf": 40
+      },
+      "random_forest": {
+        "max_depth": 6,
+        "min_samples_leaf": 20
+      }
+    },
+    "validation_mae": {
+      "zero_baseline": 24.509621545469972,
+      "linear_regression": 24.37786083057693,
+      "decision_tree": 24.476920511954713,
+      "random_forest": 24.49899226476903
+    },
+    "validation_selected_model": "linear_regression",
+    "folds": [
+      {
+        "fold": 1,
+        "train_start": 1961,
+        "train_end": 1995,
+        "validation_start": 1996,
+        "validation_end": 2002,
+        "n_train": 11165,
+        "n_validation": 2209,
+        "max_trend_fit_year": 1995
+      },
+      {
+        "fold": 2,
+        "train_start": 1961,
+        "train_end": 2002,
+        "validation_start": 2003,
+        "validation_end": 2009,
+        "n_train": 13416,
+        "n_validation": 2212,
+        "max_trend_fit_year": 2002
+      },
+      {
+        "fold": 3,
+        "train_start": 1961,
+        "train_end": 2009,
+        "validation_start": 2010,
+        "validation_end": 2015,
+        "n_train": 15702,
+        "n_validation": 1915,
+        "max_trend_fit_year": 2009
+      }
+    ],
+    "random_seed": 324
+  }
+}

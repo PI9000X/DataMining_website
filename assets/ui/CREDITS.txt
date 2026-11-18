@@ -1,0 +1,2 @@
+Terraces, rice, wheat, maize, dry weather and fertilizer images: illustrative crops of the AI-generated Team PI design mockup, not documentary photographs.
+world.json: generalized country shapes adapted from the Natural Earth low-resolution dataset (public domain); https://www.naturalearthdata.com/about/terms-of-use/ . ISO identifiers are matched to saved validation observations; small territories may lack map shapes. Geographic boundaries are illustrative.

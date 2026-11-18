@@ -1,0 +1,266 @@
+{
+  "schema": 2,
+  "site": "Team PI Agriculture & Climate Resilience V4",
+  "prepared_date": "2026-11-19",
+  "source_archive": "team_pi_website_v4_preview.zip",
+  "source_archive_sha256": "df6173d972aeca5277ba128258cfdb0ce12002fc627710be8efebbfa19c53fda",
+  "files": [
+    {
+      "path": "assets/demo/global-v3.json",
+      "bytes": 806825,
+      "sha256": "b0e794fe7e74d15983911e45b0fe363129e34ec02bc5460b0cb03e4e6dd91c47"
+    },
+    {
+      "path": "assets/demo/regional-rice-maize.json",
+      "bytes": 33382,
+      "sha256": "6010b5070144b8a29c6bfad414da1a3542aa385f997d15ad35d66f145c8155e0"
+    },
+    {
+      "path": "assets/research/evidence-guide.html",
+      "bytes": 21330,
+      "sha256": "3c7703bea13233a2f8df647aa0bb841abecb0ba61d1b9a3415a2c0d41bf2a67b"
+    },
+    {
+      "path": "assets/research/figure-sources.json",
+      "bytes": 4318,
+      "sha256": "d2c1024cf7302b0234f5aca553fb1a627a6a2f9f3602a0133e9cf7f8e7b11fb7"
+    },
+    {
+      "path": "assets/research/m3-models.png",
+      "bytes": 84115,
+      "sha256": "56b7c7ec660647f26d9438a870358e3888c52161c5c1aebb19c92b2d1226269d"
+    },
+    {
+      "path": "assets/research/model-comparisons.csv",
+      "bytes": 8384,
+      "sha256": "4b469859f2f43edeee1c2d7247e4b0e1af4253cc17d0edcfffa50cfdb719365d"
+    },
+    {
+      "path": "assets/research/regional-capacity.png",
+      "bytes": 92382,
+      "sha256": "a7ed7a597eec920fbabb8f2fd8cf98e0bc608f42c2f93128789a8e41d21858d3"
+    },
+    {
+      "path": "assets/research/regional-features.png",
+      "bytes": 111125,
+      "sha256": "dc6f748f607005923346bee91990c1cfd5c36cfa4a80c32cf9639abb73ea8d3b"
+    },
+    {
+      "path": "assets/research/regional-models.png",
+      "bytes": 245946,
+      "sha256": "e8eb57adf057a443631a6a71f93236b722d42248d1a768d2c8d25aea72bcf896"
+    },
+    {
+      "path": "assets/research/v2-references.png",
+      "bytes": 93050,
+      "sha256": "06c0dccf91ab098d6efa0a4df7e9f79ab6674aca4c05e90a13fb10428d44a633"
+    },
+    {
+      "path": "assets/research/v3-events.png",
+      "bytes": 78238,
+      "sha256": "7333f535649d6b6a7de8786eed1293331bd8fcc92c3b2763d2cf9928b59e3182"
+    },
+    {
+      "path": "assets/research/v3-precipitation.png",
+      "bytes": 224608,
+      "sha256": "f2ab457ae02232b8da3d39b8c4466c12429b57153f65345e004e5772b90b6d2b"
+    },
+    {
+      "path": "assets/research/v3-prediction.png",
+      "bytes": 62852,
+      "sha256": "5514168340f9b5a9410a25358e622133b1e20ac1756bb5f7d772a67521d1c62b"
+    },
+    {
+      "path": "assets/research/v3-stability.png",
+      "bytes": 66368,
+      "sha256": "3aec538741fb535488f3590bd31d7d659636119530f6c6083f49ec00141496fb"
+    },
+    {
+      "path": "assets/research/v3-temperature.png",
+      "bytes": 250875,
+      "sha256": "04b8f4f88fcbb6abf889070527e5ca85f91e5e8a9b24745e53e8de3e1bda7c7f"
+    },
+    {
+      "path": "assets/ui/CREDITS.txt",
+      "bytes": 462,
+      "sha256": "8b32f8ce74e10a080903ec5c6bab5afcf66651b7f18ecc5bcda5e9f820023b9e"
+    },
+    {
+      "path": "assets/ui/dry.webp",
+      "bytes": 4938,
+      "sha256": "0777efe439a344dacd6d04b3a0318c3e856d8708a4cad58e824a4cb580e3b3f3"
+    },
+    {
+      "path": "assets/ui/fertilizer.webp",
+      "bytes": 6284,
+      "sha256": "5de761885ec9e252537ce451d1e2c6171ab2ec92997db92f836e3973f95f3232"
+    },
+    {
+      "path": "assets/ui/maize.webp",
+      "bytes": 4212,
+      "sha256": "204deb7af7ea28fc03aa5b6f5fa8a77664615dacf85693bddff2c6899706d95a"
+    },
+    {
+      "path": "assets/ui/map-evidence.json",
+      "bytes": 95394,
+      "sha256": "5eb527c797f28f9c52803aa663498bc485467588707ad8c58a7f3856cd5424f3"
+    },
+    {
+      "path": "assets/ui/rice.webp",
+      "bytes": 4076,
+      "sha256": "2e469c7f5dc6f2523dd51b84071fea9c0709332aa05247028a385cd6367736a5"
+    },
+    {
+      "path": "assets/ui/terraces.webp",
+      "bytes": 52146,
+      "sha256": "ebc47b893386c89fabb618b9f436236c0fb02bbaf8e62d2acba79df07b67f4ec"
+    },
+    {
+      "path": "assets/ui/wheat.webp",
+      "bytes": 3802,
+      "sha256": "53517b507f3f26625dee8cd205d9bb8670fe278f3c47e9e7d0aab012f0d8f118"
+    },
+    {
+      "path": "assets/ui/world.json",
+      "bytes": 122554,
+      "sha256": "c4f74997b36d735f45ddc46b072b1a0188e32b252289a2e17031a57b7bade78f"
+    },
+    {
+      "path": "dashboard.css",
+      "bytes": 12064,
+      "sha256": "04772a785396cc7da55e4cd16a9e572d3edb80ec779ad76f754d248bf5f5f5ac"
+    },
+    {
+      "path": "dashboard.js",
+      "bytes": 13026,
+      "sha256": "34c45f0d688e4f6ba35b6659962cf1de150b16077dee951618518d1ee864f132"
+    },
+    {
+      "path": "demo.css",
+      "bytes": 4460,
+      "sha256": "eaec8d87e06011ab65f82e10c7d08a21914525d601b43baff24c223ebb99a665"
+    },
+    {
+      "path": "demo.html",
+      "bytes": 7330,
+      "sha256": "a21ae720eb9ac5484cd1930e8ddb82b468c35b4da659b4f2dc18e2afac00a106"
+    },
+    {
+      "path": "demo.js",
+      "bytes": 9886,
+      "sha256": "e98eeadc6f05ef0a247701fb62d9b6b95e03941bad27058a03a234ae4fd1228b"
+    },
+    {
+      "path": "demo_provenance.md",
+      "bytes": 7797,
+      "sha256": "57cb6588fb97f4fe46c6c42cbec4c5446f440277adbc0af67aa4c538acdac8d9"
+    },
+    {
+      "path": "index.html",
+      "bytes": 64925,
+      "sha256": "8a8d6b1181b9d53f0dbfe87ca349aca493dede290e667e52ec88ac9353ad35c0"
+    },
+    {
+      "path": "model_artifact_inventory.md",
+      "bytes": 2094,
+      "sha256": "eff88be8d3f864e507dcd264055e0c9ff7dd4de4a43b6a1ab65a8d5ed1700565"
+    },
+    {
+      "path": "model_version_comparison.md",
+      "bytes": 11194,
+      "sha256": "e41c559b1422c7a74d2e937ea539f0adea2b5e81f8e4cf45e02ebd98b19df644"
+    },
+    {
+      "path": "refinements.css",
+      "bytes": 7187,
+      "sha256": "e9098fc21d3fb960209426aeafc8774de9dfb5e1468e4d3757ff38384c2f6235"
+    },
+    {
+      "path": "refinements.js",
+      "bytes": 15415,
+      "sha256": "b00824cf1f050b551a4e180f737ce9fd389079369054fe34c542c687017a6274"
+    },
+    {
+      "path": "research_artifacts.html",
+      "bytes": 2875,
+      "sha256": "68ab72c5f8fbcc172c4c72bfce2db4ee42b01f3dcfa31aff68a1a44b8133720f"
+    },
+    {
+      "path": "results/global_improvement_v2/code/run_experiment.py",
+      "bytes": 21110,
+      "sha256": "c4d9045531e96290d46a6f5e67b922a173082a535c2020c116489a7416b9403a"
+    },
+    {
+      "path": "results/global_improvement_v2/comparison_report.md",
+      "bytes": 19478,
+      "sha256": "d01b38078d2bf503b35cf1d6ef344f67aac8e8fa518db4725d63317c55082d70"
+    },
+    {
+      "path": "results/global_improvement_v2/tables/scores.csv",
+      "bytes": 391555,
+      "sha256": "073e310cfaf324aaf0f9339586832d98e50ce1dd45fc546182315d8eded1ac88"
+    },
+    {
+      "path": "results/global_improvement_v3/code/main.py",
+      "bytes": 1807,
+      "sha256": "314d6812472f9622d8a9ba67416d4068a8797b410330f31d19dd422b95254052"
+    },
+    {
+      "path": "results/global_improvement_v3/reports/global_v3_findings.md",
+      "bytes": 26142,
+      "sha256": "57690e3e974b770830c95ef133a66ffe73bf957fdffc42c1918524bcc60b9c4e"
+    },
+    {
+      "path": "results/global_improvement_v3/tables/prediction_scores.csv",
+      "bytes": 217889,
+      "sha256": "5cfb081f75ef6434d3ce2429bebed0f77a89fac54fb2b82f79fe5f4dc2ad82ec"
+    },
+    {
+      "path": "results/reports/m3/milestone3_summary.md",
+      "bytes": 16286,
+      "sha256": "bf5d984243fe49a093d4ef34a45e4e6380a868cce27a3e99728167892ca925f1"
+    },
+    {
+      "path": "results/tables/m3/model_comparison.csv",
+      "bytes": 377,
+      "sha256": "3c0431ae5aa418cf2d6b81a00fa45a942e32f79040c26103d12d6ba5ff8dcbe9"
+    },
+    {
+      "path": "saved_models/model_metadata_m3.json",
+      "bytes": 4130,
+      "sha256": "5a0d03a0818a38b85a0dea559f5678a8edcb9584bb7ac8a62a094aebe5b38200"
+    },
+    {
+      "path": "script.js",
+      "bytes": 11462,
+      "sha256": "6eccb4948eb1ca4dd5c31854a83e535d2c9feccf0e58c71f284ff4bb23e19a78"
+    },
+    {
+      "path": "site-data.js",
+      "bytes": 26660,
+      "sha256": "6d5802bb87224d34ba36205869b067c83912401abd5ec09ecd5e8f1c071a373e"
+    },
+    {
+      "path": "src/models/train_models.py",
+      "bytes": 7144,
+      "sha256": "9e5ff0aeb6ca94793ff4d1033c29090461769db57299c942fa4f856384320493"
+    },
+    {
+      "path": "style.css",
+      "bytes": 35070,
+      "sha256": "39f0eb64a559bb75c64dbe33d8d2a701a6a909613e82232b01698cb8edd1d0f5"
+    },
+    {
+      "path": "updates.js",
+      "bytes": 9754,
+      "sha256": "e8c5d1e17254b5380677a32ad800a6b844545b2493a268deeb0802fb540c0c4e"
+    },
+    {
+      "path": "website_v4_notes.md",
+      "bytes": 3489,
+      "sha256": "9e6c88aa145dc03ea1413818ac8beb27607aa806ca1f03012246712b7d91e144"
+    }
+  ],
+  "total_bytes_excluding_manifest": 3428272,
+  "note": "Actual static website export. Original research data/model binaries, caches, preview tooling, backups and README changes are excluded. Selected linked source and evaluation/report artifacts retain original bytes. No model fitting."
+}
